@@ -1,0 +1,34 @@
+@use 'variables';
+@use 'navbar';
+@use 'about';
+@use 'skills';
+@use 'projects';
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body{
+    min-height: 100vh;
+    font-family: "Inter";
+    background-color: #121212;
+    color: #f8fafc;
+}
+
+.aboutDiv,
+.skillsDiv,
+.projectsDiv {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 6rem 1rem 2rem 1rem;
+    scroll-margin-top: 4rem;
+}

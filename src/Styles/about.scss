@@ -1,0 +1,233 @@
+@import "variables";
+
+.aboutDiv{
+    width: 100%;
+    max-width: 1200px;
+    margin: auto;
+
+    .greeting{
+        text-align: center;
+        margin-bottom: 3rem;
+        // display: flex;
+        // flex-direction: column;
+
+        .hello{
+            font-size: 2em;
+            font-weight: 600;
+            margin-right: .4em;
+        }
+
+        .name{
+            font-size: 2.5em;
+            font-weight: 700;
+            color: $green1;
+        }
+    }
+    img{
+        display: flex;
+        margin: auto;
+        border-radius: 50%;
+        height: 200px;
+        width: 200px;
+    }
+
+    .topSection{
+        margin-bottom: 2rem;
+    }
+
+    .boxContainer{
+        max-width: 320px;
+        display: flex;
+        justify-content: space-evenly;
+        margin: 2em auto 0 auto;
+
+        .experienceDiv{
+            width: 144px;
+
+            span{
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                margin: .2em auto .2em auto;
+            }
+
+            .icon{
+                font-size: 2em;
+                color: $green1;
+            }
+
+            .num{
+                font-size: 1.5em;
+            }
+
+            .exp{
+                color: $gray4;
+            }
+        }
+
+        .educationDiv{
+            width: 144px;
+
+            span{
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                margin: .2em auto .2em auto;
+            }
+
+            .icon{
+                font-size: 2em;
+                color: $green1;
+            }
+
+            .num{
+                font-size: 1.5em;
+            }
+
+            .tech{
+                color: $gray4;
+            }
+        }
+    }
+
+    .textContent{
+        max-width: 750px;
+        margin: 1rem auto;
+        
+        p{
+            padding: .6em;
+            font-size: 1.1em;
+            line-height: 1.6;
+        }
+    }
+
+    .contactDiv{
+        margin-top: 2rem;
+        
+        .download{
+            margin: 0 auto 2em auto;
+            display: flex;
+            align-items: center;
+            border-radius: 20px;
+            background-color: $green5;
+            padding: 1em 1em .8em 1em;
+            width: 200px;
+            transition: background-color 0.3s ease;
+            
+            &:hover{
+                background-color: $green1;
+                cursor: pointer;
+                
+                span{
+                    color: $black;
+                }
+
+                a{
+                    color: $black;
+                }
+            }
+            
+            span{
+                font-size: 1.2em;
+                color: $white;
+                margin-right: .4em;
+            }
+            a{
+                font-size: 1em;
+                padding-bottom: .2em;
+                color: $white;
+                text-decoration: none;
+            }
+        }
+
+        .links{
+            display: flex;
+            justify-content: center;
+            gap: 2em;
+
+            .linkDiv{
+                display: flex;
+                align-items: center;
+
+                a{
+                    display: flex;
+                    align-items: center;
+                    font-size: 1.8em;
+                    color: $green1;
+                    border: 2px solid $gray2;
+                    border-radius: 50%;
+                    padding: .4em;
+                    transition: all 0.3s ease;
+                    
+                    &:hover{
+                        color: $black;
+                        border-color: $green1;
+                        background-color: $green1;
+                    }
+                }
+            }
+        }
+    }
+}
+
+@media(min-width: 725px){
+    .aboutDiv{
+
+        .topSection{
+            display: flex;
+            align-items: center;
+            gap: 7em;
+            margin-bottom: 3rem;
+            
+            img{
+                margin: 0;
+                height: 300px;
+                width: 300px;
+            }
+
+            .boxContainer{
+                display: block;
+                margin: 0;
+
+                .educationDiv{
+                    margin-top: 2em;
+                }
+            }
+        }
+
+        .textContent{
+            p{
+                font-size: 1.2em;
+            }
+        }
+
+        .contactDiv{
+            display: flex;
+            align-items: center;
+            gap: 4em;
+
+            .download{
+                margin: 0;
+            }
+        }
+    }   
+}
+
+@media (max-width: 480px){
+    .greeting{
+        display: flex;
+        flex-direction: column;
+
+        .hello{
+            font-size: 2em;
+            font-weight: 600;
+            margin-right: .4em;
+        }
+
+        .name{
+            font-size: 2.5em;
+            font-weight: 700;
+            color: $green1;
+        }
+    }
+}
