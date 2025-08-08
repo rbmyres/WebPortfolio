@@ -5,9 +5,9 @@ nav{
     top: 0;
     left: 0;
     right: 0;
-    background-color: rgba(18, 18, 18, 0.95);
-    backdrop-filter: blur(10px);
-    border-bottom: 1px solid $gray2;
+    background: rgba(15, 15, 15, 0.85);
+    backdrop-filter: blur(20px);
+    border-bottom: 1px solid $border-color;
     z-index: 1000;
     padding: 0 1rem;
 
@@ -22,30 +22,48 @@ nav{
         list-style: none;
 
         .openSidebar{
-            font-size: 2em;
-            font-weight: 500;
-            padding-top: .2em;
+            font-size: 1.5rem;
+            padding: 0.5rem;
             cursor: pointer;
-            transition: color 0.3s ease;
+            transition: all 0.3s ease;
+            border-radius: 8px;
+            color: $text-secondary;
             
             &:hover{
-                color: $green1;
+                color: $primary;
+                background: $primary-light;
             }
         }
 
         .navText{
-            width: 120px;
-            text-align: center;
-            padding: .8em 1.2em;
-            font-size: 1.1em;
+            padding: 0.75rem 1.5rem;
+            font-size: 1rem;
             font-weight: 500;
             cursor: pointer;
             transition: all 0.3s ease;
-            border-radius: 8px;
-
+            border-radius: 10px;
+            color: $text-secondary;
+            position: relative;
+            
             &:hover{
-                color: $green1;
-                background-color: rgba(80, 199, 119, 0.1);
+                color: $primary;
+                background: $primary-light;
+            }
+            
+            &:after {
+                content: '';
+                position: absolute;
+                bottom: -2px;
+                left: 50%;
+                width: 0;
+                height: 2px;
+                background: linear-gradient(135deg, $primary, $accent);
+                transition: all 0.3s ease;
+                transform: translateX(-50%);
+            }
+            
+            &:hover:after {
+                width: 80%;
             }
         }
     }
@@ -53,46 +71,52 @@ nav{
     .sidebar{
         list-style: none;
         position: fixed;
-        background-color: rgba(18, 18, 18, 0.98);
-        backdrop-filter: blur(10px);
+        background: rgba(15, 15, 15, 0.95);
+        backdrop-filter: blur(20px);
         top: 0;
         right: 0;
         height: 100vh;
-        width: 240px;
+        width: 280px;
         z-index: 999;
-        box-shadow: -10px 0 30px rgba(0, 0, 0, 0.3);
+        box-shadow: -20px 0 40px rgba(0, 0, 0, 0.5);
         flex-direction: column;
         align-items: flex-start;
         justify-content: flex-start;
         transform: translateX(100%);
-        transition: transform 0.4s ease;
-        border-left: 1px solid $gray2;
+        transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        border-left: 1px solid $border-color;
 
         .closeSidebar{
             text-align: right;
             padding: 1.5rem 1.5rem 1rem 0;
-            font-size: 1.8em;
+            font-size: 1.25rem;
             font-weight: 500;
             margin-left: auto;
             cursor: pointer;
-            transition: color 0.3s ease;
+            transition: all 0.3s ease;
+            border-radius: 8px;
             
             &:hover{
-                color: $green1;
+                color: $primary;
+                background: $primary-light;
             }
         }
 
         .sideText{
-            font-size: 1.3em;
+            font-size: 1.125rem;
             font-weight: 500;
             margin-left: 1.5rem;
-            padding: 1rem 0;
+            padding: 1rem 2rem 1rem 0;
             cursor: pointer;
             transition: all 0.3s ease;
             border-radius: 8px;
-
+            color: $text-secondary;
+            width: calc(100% - 1.5rem);
+            
             &:hover{
-                color: $green1;
+                color: $primary;
+                background: $primary-light;
+                transform: translateX(8px);
             }
         }
     }

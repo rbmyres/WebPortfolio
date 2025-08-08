@@ -7,20 +7,25 @@
 
     .greeting{
         text-align: center;
-        margin-bottom: 3rem;
-        // display: flex;
-        // flex-direction: column;
-
+        margin-bottom: 4rem;
+        
         .hello{
-            font-size: 2em;
-            font-weight: 600;
-            margin-right: .4em;
+            font-size: clamp(1.8rem, 4vw, 2.2rem);
+            font-weight: 500;
+            margin-right: .5em;
+            color: $text-secondary;
+            display: block;
         }
 
         .name{
-            font-size: 2.5em;
+            font-size: clamp(2.5rem, 6vw, 4rem);
             font-weight: 700;
-            color: $green1;
+            background: linear-gradient(135deg, $primary, $accent);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            display: block;
+            margin-top: 0.5rem;
         }
     }
     img{
@@ -36,105 +41,106 @@
     }
 
     .boxContainer{
-        max-width: 320px;
+        max-width: 400px;
         display: flex;
-        justify-content: space-evenly;
-        margin: 2em auto 0 auto;
+        justify-content: center;
+        gap: 2rem;
+        margin: 3rem auto 0 auto;
 
-        .experienceDiv{
-            width: 144px;
-
-            span{
-                display: flex;
-                flex-direction: column;
-                align-items: center;
-                margin: .2em auto .2em auto;
-            }
-
-            .icon{
-                font-size: 2em;
-                color: $green1;
-            }
-
-            .num{
-                font-size: 1.5em;
-            }
-
-            .exp{
-                color: $gray4;
-            }
-        }
-
+        .experienceDiv,
         .educationDiv{
-            width: 144px;
+            background: $surface;
+            border: 1px solid $border-color;
+            border-radius: 16px;
+            padding: 1.5rem;
+            width: 160px;
+            text-align: center;
+            backdrop-filter: blur(10px);
+            transition: all 0.3s ease;
+
+            &:hover {
+                transform: translateY(-4px);
+                border-color: $primary;
+                box-shadow: 0 10px 30px rgba(59, 130, 246, 0.2);
+            }
 
             span{
                 display: flex;
                 flex-direction: column;
                 align-items: center;
-                margin: .2em auto .2em auto;
+                margin: 0.3rem 0;
             }
 
             .icon{
-                font-size: 2em;
-                color: $green1;
+                font-size: 2.5rem;
+                color: $primary;
+                margin-bottom: 0.5rem;
             }
 
             .num{
-                font-size: 1.5em;
+                font-size: 1.8rem;
+                font-weight: 700;
+                color: $text-primary;
             }
 
+            .exp,
             .tech{
-                color: $gray4;
+                color: $text-muted;
+                font-size: 0.9rem;
+                font-weight: 500;
             }
         }
     }
 
     .textContent{
-        max-width: 750px;
-        margin: 1rem auto;
+        max-width: 800px;
+        margin: 3rem auto;
         
         p{
-            padding: .6em;
-            font-size: 1.1em;
-            line-height: 1.6;
+            padding: 1rem;
+            font-size: 1.125rem;
+            line-height: 1.7;
+            color: $text-secondary;
+            font-weight: 400;
+            
+            &:first-child {
+                margin-bottom: 1rem;
+            }
         }
     }
 
     .contactDiv{
-        margin-top: 2rem;
+        margin-top: 3rem;
         
         .download{
-            margin: 0 auto 2em auto;
+            margin: 0 auto 2.5rem auto;
             display: flex;
             align-items: center;
-            border-radius: 20px;
-            background-color: $green5;
-            padding: 1em 1em .8em 1em;
-            width: 200px;
-            transition: background-color 0.3s ease;
+            justify-content: center;
+            border-radius: 12px;
+            background: linear-gradient(135deg, $primary, $primary-hover);
+            padding: 1rem 2rem;
+            width: fit-content;
+            min-width: 200px;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(59, 130, 246, 0.3);
             
             &:hover{
-                background-color: $green1;
+                transform: translateY(-2px);
+                box-shadow: 0 8px 25px rgba(59, 130, 246, 0.4);
+                background: linear-gradient(135deg, $primary-hover, $primary);
                 cursor: pointer;
-                
-                span{
-                    color: $black;
-                }
-
-                a{
-                    color: $black;
-                }
             }
             
             span{
-                font-size: 1.2em;
+                font-size: 1.1rem;
                 color: $white;
-                margin-right: .4em;
+                margin-right: 0.75rem;
             }
+            
             a{
-                font-size: 1em;
-                padding-bottom: .2em;
+                font-size: 1rem;
+                font-weight: 500;
                 color: $white;
                 text-decoration: none;
             }
@@ -143,7 +149,7 @@
         .links{
             display: flex;
             justify-content: center;
-            gap: 2em;
+            gap: 1.5rem;
 
             .linkDiv{
                 display: flex;
@@ -152,17 +158,23 @@
                 a{
                     display: flex;
                     align-items: center;
-                    font-size: 1.8em;
-                    color: $green1;
-                    border: 2px solid $gray2;
-                    border-radius: 50%;
-                    padding: .4em;
+                    justify-content: center;
+                    font-size: 1.5rem;
+                    color: $text-muted;
+                    background: $surface;
+                    border: 1px solid $border-color;
+                    border-radius: 12px;
+                    padding: 1rem;
                     transition: all 0.3s ease;
+                    width: 60px;
+                    height: 60px;
                     
                     &:hover{
-                        color: $black;
-                        border-color: $green1;
-                        background-color: $green1;
+                        color: $primary;
+                        border-color: $primary;
+                        background: $primary-light;
+                        transform: translateY(-2px);
+                        box-shadow: 0 4px 15px rgba(59, 130, 246, 0.2);
                     }
                 }
             }
@@ -170,41 +182,54 @@
     }
 }
 
-@media(min-width: 725px){
+@media(min-width: 768px){
     .aboutDiv{
+        .greeting {
+            margin-bottom: 5rem;
+        }
 
         .topSection{
             display: flex;
             align-items: center;
-            gap: 7em;
-            margin-bottom: 3rem;
+            justify-content: center;
+            gap: 4rem;
+            margin-bottom: 4rem;
             
             img{
                 margin: 0;
-                height: 300px;
-                width: 300px;
+                height: 280px;
+                width: 280px;
             }
 
             .boxContainer{
                 display: block;
                 margin: 0;
+                gap: 1rem;
 
+                .experienceDiv,
                 .educationDiv{
-                    margin-top: 2em;
+                    margin-bottom: 1.5rem;
+                    
+                    &:last-child {
+                        margin-bottom: 0;
+                    }
                 }
             }
         }
 
         .textContent{
+            max-width: 900px;
+            
             p{
-                font-size: 1.2em;
+                font-size: 1.25rem;
             }
         }
 
         .contactDiv{
             display: flex;
             align-items: center;
-            gap: 4em;
+            justify-content: center;
+            gap: 3rem;
 
             .download{
                 margin: 0;
@@ -213,21 +238,69 @@
     }   
 }
 
-@media (max-width: 480px){
-    .greeting{
-        display: flex;
-        flex-direction: column;
-
-        .hello{
-            font-size: 2em;
-            font-weight: 600;
-            margin-right: .4em;
+@media(min-width: 1024px){
+    .aboutDiv{
+        .topSection{
+            gap: 6rem;
+            
+            img{
+                height: 320px;
+                width: 320px;
+            }
         }
-
-        .name{
-            font-size: 2.5em;
-            font-weight: 700;
-            color: $green1;
+        
+        .contactDiv{
+            gap: 4rem;
         }
     }
+}
+
+@media (max-width: 767px){
+    .aboutDiv{
+        .greeting{
+            margin-bottom: 3rem;
+            
+            .hello,
+            .name{
+                display: block;
+                margin: 0;
+            }
+            
+            .hello{
+                margin-bottom: 0.5rem;
+            }
+        }
+        
+        .boxContainer{
+            flex-direction: column;
+            gap: 1rem;
+            max-width: 200px;
+            
+            .experienceDiv,
+            .educationDiv{
+                width: 100%;
+            }
+        }
+        
+        .contactDiv{
+            flex-direction: column;
+            gap: 2rem;
+            
+            .links{
+                gap: 1.5rem;
+            }
+        }
+    }
+}
+
+.bottomLine {
+    width: 100%;
+    height: 1px;
+    background: linear-gradient(90deg, 
+        transparent 0%, 
+        $border-color 20%, 
+        $primary 50%, 
+        $border-color 80%, 
+        transparent 100%);
+    margin: 2rem 0;
 }
