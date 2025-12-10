@@ -18,8 +18,8 @@ function About() {
         <div className="boxContainer">
           <div className="experienceDiv">
             <span className="icon"><FaMedal /></span>
-            <span className="num">2+ Years</span>
-            <span className="exp">Engineering Experience</span>
+            <span className="num">2+</span>
+            <span className="exp">Years Experience</span>
           </div>
           <div className="educationDiv">
             <span className="icon"><FaComputer /></span>
