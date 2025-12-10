@@ -1,0 +1,52 @@
+name: Deploy Web Portfolio to Lightsail
+
+on:
+  push:
+    branches: [ main ]  # change if your main branch has a different name
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Deploy via SSH to Lightsail
+        uses: appleboy/ssh-action@v1.0.3
+        with:
+          host: ${{ secrets.LIGHTSAIL_HOST }}
+          username: ${{ secrets.LIGHTSAIL_USER }}
+          key: ${{ secrets.LIGHTSAIL_SSH_KEY }}
+          script: |
+            set -e
+
+            echo ">>> Going to project directory"
+            cd /home/ubuntu/web-portfolio
+
+            echo ">>> Pulling latest code"
+            git fetch origin main
+            git reset --hard origin/main
+
+            echo ">>> Installing dependencies"
+            if [ -f package-lock.json ]; then
+              npm ci
+            else
+              npm install
+            fi
+
+            echo ">>> Building project"
+            npm run build
+
+            echo ">>> Clearing old deployment"
+            sudo rm -rf /var/www/web-portfolio/*
+
+            echo ">>> Copying new dist files"
+            # If your build folder is named 'build' or 'out', change 'dist' below.
+            sudo cp -r dist/* /var/www/web-portfolio/
+
+            echo ">>> Fixing permissions"
+            sudo chown -R ubuntu:www-data /var/www/web-portfolio
+            sudo chmod -R 775 /var/www/web-portfolio
+
+            echo ">>> Reloading nginx"
+            sudo systemctl reload nginx
+
+            echo ">>> Deployment complete"
